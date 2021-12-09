@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f921-ad14-4ced-8ddb-85a44363fb21" name="Changes" comment="Initial Commit" />
+    <list default="true" id="f078f921-ad14-4ced-8ddb-85a44363fb21" name="Changes" comment="Initial Commit">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/dockerhub.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,14 +52,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/main.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.github/workflows" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Development\Udacity\CloudNative\CloudNative_Project2\modules\location-grpc\.github\workflows" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Development\Udacity\CloudNative\CloudNative_Project2\modules\location-grpc\app" />
     </key>
@@ -103,7 +109,7 @@
       <workItem from="1639017963993" duration="325000" />
       <workItem from="1639018329545" duration="827000" />
       <workItem from="1639019164612" duration="48000" />
-      <workItem from="1639019219082" duration="12000" />
+      <workItem from="1639019219082" duration="1110000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1638836732635</created>
@@ -154,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639018643253</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Initial Commit">
+      <created>1639019250717</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1639019250718</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
