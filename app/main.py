@@ -1,20 +1,24 @@
-from concurrent import futures
 import time
+from concurrent import futures
 import grpc
 import location_pb2
 import location_pb2_grpc
+import location_service
 
 
 class LocationServicer(location_pb2_grpc.LocationServiceServicer):
     def Retrieve(self, request, context):
 
-        locationmsg = location_pb2.LocationMessage(
-            id=53,
-            person_id=8,
-            coordinate="010100000097FDBAD39D925EC0D00A0C59DDC64240",
-            creation_time="2021-11-07 14:30:53.096698"
-        )
-        return locationmsg
+
+        result_from_db = location_service.LocationService.Retrieve(request.id)
+
+        if result_from_db:
+            return location_pb2.LocationMessageResponse(
+                id=result_from_db.id,
+                person_id=result_from_db.person_id,
+                coordinate=str(result_from_db.coordinate),
+                creation_time=result_from_db.creation_time.strftime('%Y-%m-%d %H:%M:%S.%f')
+            )
 
 
 server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))

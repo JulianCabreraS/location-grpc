@@ -10,7 +10,9 @@ message LocationMessage {
 message MessageRequest {
   int32 id = 1;
 }
+message Empty {
 
+}
 service LocationService {
   rpc Retrieve(MessageRequest) returns(LocationMessage);
 }
