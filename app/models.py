@@ -1,14 +1,11 @@
 from __future__ import annotations
-
 from datetime import datetime
-
-from app.database import db  # noqa
-# from geoalchemy2 import Geometry
+from database import db
 from geoalchemy2.shape import to_shape
 from shapely.geometry.point import Point
 from sqlalchemy import BigInteger, Column, DateTime, ForeignKey, Integer, String
 from sqlalchemy.ext.hybrid import hybrid_property
-from geoalchemy2 import Geometry
+import geoalchemy2
 
 
 class Person(db.Model):
@@ -25,7 +22,7 @@ class Location(db.Model):
 
     id = Column(BigInteger, primary_key=True)
     person_id = Column(Integer, ForeignKey(Person.id), nullable=False)
-    coordinate = Column(Geometry("POINT"), nullable=False)
+    coordinate = Column(geoalchemy2.Geometry("POINT"), nullable=False)
     creation_time = Column(DateTime, nullable=False, default=datetime.utcnow)
     _wkt_shape: str = None
 
