@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f078f921-ad14-4ced-8ddb-85a44363fb21" name="Changes" comment="Saving the database">
-      <change afterPath="$PROJECT_DIR$/app/writer.py" afterDir="false" />
+    <list default="true" id="f078f921-ad14-4ced-8ddb-85a44363fb21" name="Changes" comment="Implementation of create">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/location.proto" beforeDir="false" afterPath="$PROJECT_DIR$/app/location.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/location_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/location_pb2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/location_pb2_grpc.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/location_pb2_grpc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/location_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/location_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/writer.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/writer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +54,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.github/workflows" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../persons-kafka" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -119,7 +115,7 @@
       <workItem from="1639710730978" duration="88000" />
       <workItem from="1639781383738" duration="1837000" />
       <workItem from="1639855902740" duration="208000" />
-      <workItem from="1639964206726" duration="3215000" />
+      <workItem from="1639964206726" duration="6337000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1638836732635</created>
@@ -198,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639621369862</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Implementation of create">
+      <created>1639967576894</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1639967576894</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,7 +228,8 @@
     <MESSAGE value="Read from the database." />
     <MESSAGE value="fix imports" />
     <MESSAGE value="Saving the database" />
-    <option name="LAST_COMMIT_MESSAGE" value="Saving the database" />
+    <MESSAGE value="Implementation of create" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementation of create" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/api$app.coverage" NAME="app Coverage Results" MODIFIED="1638814445629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

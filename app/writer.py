@@ -14,7 +14,7 @@ timestamp = Timestamp()
 now = datetime.datetime.now()
 timestamp.FromDatetime(now)
 
-location_req = location_pb2.MessageRequest(
+location_req = location_pb2.LocationMessage(
     person_id=10,
     longitude=-79.52,
     latitude=36.78,
