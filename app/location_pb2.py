@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0elocation.proto\"[\n\x0fLocationMessage\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x11\n\tperson_id\x18\x02 \x01(\x05\x12\x12\n\ncoordinate\x18\x03 \x01(\t\x12\x15\n\rcreation_time\x18\x04 \x01(\t\"\x1c\n\x0eMessageRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"\x07\n\x05\x45mpty\"c\n\x17LocationMessageResponse\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x11\n\tperson_id\x18\x02 \x01(\x05\x12\x12\n\ncoordinate\x18\x03 \x01(\t\x12\x15\n\rcreation_time\x18\x04 \x01(\t2@\n\x0fLocationService\x12-\n\x08Retrieve\x12\x0f.MessageRequest\x1a\x10.LocationMessageb\x06proto3'
+  serialized_pb=b'\n\x0elocation.proto\"[\n\x0fLocationMessage\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x11\n\tperson_id\x18\x02 \x01(\x05\x12\x12\n\ncoordinate\x18\x03 \x01(\t\x12\x15\n\rcreation_time\x18\x04 \x01(\t\"\x1c\n\x0eMessageRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"\x07\n\x05\x45mpty\"c\n\x17LocationMessageResponse\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x11\n\tperson_id\x18\x02 \x01(\x05\x12\x12\n\ncoordinate\x18\x03 \x01(\t\x12\x15\n\rcreation_time\x18\x04 \x01(\t2v\n\x0fLocationService\x12\x34\n\x06\x63reate\x12\x10.LocationMessage\x1a\x18.LocationMessageResponse\x12-\n\x08retrieve\x12\x0f.MessageRequest\x1a\x10.LocationMessageb\x06proto3'
 )
 
 
@@ -231,12 +231,22 @@ _LOCATIONSERVICE = _descriptor.ServiceDescriptor(
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
   serialized_start=251,
-  serialized_end=315,
+  serialized_end=369,
   methods=[
   _descriptor.MethodDescriptor(
-    name='Retrieve',
-    full_name='LocationService.Retrieve',
+    name='create',
+    full_name='LocationService.create',
     index=0,
+    containing_service=None,
+    input_type=_LOCATIONMESSAGE,
+    output_type=_LOCATIONMESSAGERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='retrieve',
+    full_name='LocationService.retrieve',
+    index=1,
     containing_service=None,
     input_type=_MESSAGEREQUEST,
     output_type=_LOCATIONMESSAGE,

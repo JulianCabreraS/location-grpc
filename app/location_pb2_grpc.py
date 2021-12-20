@@ -14,8 +14,13 @@ class LocationServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.Retrieve = channel.unary_unary(
-                '/LocationService/Retrieve',
+        self.create = channel.unary_unary(
+                '/LocationService/create',
+                request_serializer=location__pb2.LocationMessage.SerializeToString,
+                response_deserializer=location__pb2.LocationMessageResponse.FromString,
+                )
+        self.retrieve = channel.unary_unary(
+                '/LocationService/retrieve',
                 request_serializer=location__pb2.MessageRequest.SerializeToString,
                 response_deserializer=location__pb2.LocationMessage.FromString,
                 )
@@ -24,7 +29,13 @@ class LocationServiceStub(object):
 class LocationServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def Retrieve(self, request, context):
+    def create(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def retrieve(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -33,8 +44,13 @@ class LocationServiceServicer(object):
 
 def add_LocationServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'Retrieve': grpc.unary_unary_rpc_method_handler(
-                    servicer.Retrieve,
+            'create': grpc.unary_unary_rpc_method_handler(
+                    servicer.create,
+                    request_deserializer=location__pb2.LocationMessage.FromString,
+                    response_serializer=location__pb2.LocationMessageResponse.SerializeToString,
+            ),
+            'retrieve': grpc.unary_unary_rpc_method_handler(
+                    servicer.retrieve,
                     request_deserializer=location__pb2.MessageRequest.FromString,
                     response_serializer=location__pb2.LocationMessage.SerializeToString,
             ),
@@ -49,7 +65,7 @@ class LocationService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def Retrieve(request,
+    def create(request,
             target,
             options=(),
             channel_credentials=None,
@@ -59,7 +75,24 @@ class LocationService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/LocationService/Retrieve',
+        return grpc.experimental.unary_unary(request, target, '/LocationService/create',
+            location__pb2.LocationMessage.SerializeToString,
+            location__pb2.LocationMessageResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def retrieve(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/LocationService/retrieve',
             location__pb2.MessageRequest.SerializeToString,
             location__pb2.LocationMessage.FromString,
             options, channel_credentials,

@@ -4,13 +4,34 @@ import grpc
 import location_pb2
 import location_pb2_grpc
 import location_service
+from datetime import datetime
 
 
 class LocationServicer(location_pb2_grpc.LocationServiceServicer):
-    def Retrieve(self, request, context):
 
+    def create(self, request, context):
+        timestamp_dt = datetime.fromtimestamp(request.creation_time.seconds + request.creation_time.nanos / 1e9)
+        timestamp_st = timestamp_dt.strftime('%Y-%m-%d %H:%M:%S.%f')
 
-        result_from_db = location_service.LocationService.Retrieve(request.id)
+        request_value = {
+            "person_id": request.person_id,
+            "longitude": str(request.longitude),
+            "latitude": str(request.latitude),
+            "creation_time": timestamp_st
+        }
+
+        result_from_db = location_service.LocationService.create(request_value)
+
+        print("result_from_db= ", result_from_db)
+
+        return location_pb2.LocationMessageResponse(
+            id=result_from_db.id,
+            person_id=result_from_db.person_id,
+            coordinate=str(result_from_db.coordinate),
+            creation_time=result_from_db.creation_time)
+
+    def retrieve(self, request, context):
+        result_from_db = location_service.LocationService.retrieve(request.id)
 
         if result_from_db:
             return location_pb2.LocationMessageResponse(

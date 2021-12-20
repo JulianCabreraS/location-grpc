@@ -10,9 +10,6 @@ message LocationMessage {
 message MessageRequest {
   int32 id = 1;
 }
-message Empty {
-
-}
 
 message LocationMessageResponse {
   int32 id = 1;
@@ -21,6 +18,11 @@ message LocationMessageResponse {
   string creation_time = 4;
 }
 
+message Empty {
+
+}
+
 service LocationService {
-  rpc Retrieve(MessageRequest) returns(LocationMessage);
+  rpc create(LocationMessage) returns (LocationMessageResponse);
+  rpc retrieve(MessageRequest) returns(LocationMessage);
 }

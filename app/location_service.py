@@ -2,7 +2,6 @@ import logging
 
 from typing import Dict
 from models import Location
-from schemas import LocationSchema
 from geoalchemy2.functions import ST_Point
 from database import db
 
@@ -12,7 +11,7 @@ logger = logging.getLogger("location_service")
 
 class LocationService:
     @staticmethod
-    def Retrieve(location_id) -> Location:
+    def retrieve(location_id) -> Location:
         with db.Session() as dbs:
             attr = {"id": location_id}
             location = db.s.first(Location, **attr)
@@ -22,23 +21,14 @@ class LocationService:
             return location
 
     @staticmethod
-    def Create(location: Dict) -> Location:
-        print("location in svc: before validate = ", location)
-        validation_results: Dict = LocationSchema().validate(location)
-        if validation_results:
-            logger.warning(f"Unexpected data format in payload: {validation_results}")
-            raise Exception(f"Invalid payload: {validation_results}")
+    def create(location: Dict):
+        location_object = Location()
+        location_object.person_id = location["person_id"]
+        location_object.creation_time = location["creation_time"]
+        location_object.coordinate = ST_Point(location["latitude"], location["longitude"])
 
-        new_location = Location()
-        new_location.person_id = location["person_id"]
-        new_location.creation_time = location["creation_time"]
-        new_location.coordinate = ST_Point(location["latitude"], location["longitude"])
-
-        with db.Session() as dbs:  # work with the session here
-            persisted_location = db.s.add(new_location)
-            result = persisted_location
-            all_locations = db.s.all(Location)
-            print("len(all_locations): ", len(all_locations))
+        with db.Session() as dbs:
+            db.s.add(location_object)
             db.s.flush()
             db.s.commit()
             dbs.close()
